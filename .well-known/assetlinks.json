@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rafeeq.daffah",
+      "sha256_cert_fingerprints": [
+        "43:5A:E4:58:19:15:78:B6:48:9F:AD:D7:AD:88:EC:E3:36:9B:B2:CF:C6:30:85:4E:97:8B:FE:EE:CD:B3:6C:80"
+      ]
+    }
+  }
+]
