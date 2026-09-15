@@ -10,5 +10,17 @@
         "43:5A:E4:58:19:15:78:B6:48:9F:AD:D7:AD:88:EC:E3:36:9B:B2:CF:C6:30:85:4E:97:8B:FE:EE:CD:B3:6C:80"
       ]
     }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rafeeq.daffahpro",
+      "sha256_cert_fingerprints": [
+        "A6:E1:20:B6:88:CE:78:2F:F5:8B:FD:5B:BA:D7:82:76:66:C6:C2:63:EF:AF:F8:62:CF:99:00:40:27:8C:0B:B2"
+      ]
+    }
   }
 ]
