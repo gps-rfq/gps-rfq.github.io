@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>رفيق الدرب - RAFIQ AL-DARB</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:title"
+          content="رفيق الدرب - RAFIQ AL-DARB">
+
+    <meta property="og:description"
+          content="افتح الموقع مباشرة في تطبيق رفيق الدرب للتوجيه إليه بسهولة.">
+
+    <meta property="og:url"
+          content="https://gps-rfq.github.io/r/">
+
+    <meta property="og:image"
+          content="https://gps-rfq.github.io/assets/rafeeq-preview.jpg">
+
+    <meta property="og:image:width"
+          content="1200">
+
+    <meta property="og:image:height"
+          content="630">
+
+    <!-- Twitter / WhatsApp compatible preview -->
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="رفيق الدرب - RAFIQ AL-DARB">
+
+    <meta name="twitter:description"
+          content="افتح الموقع مباشرة في تطبيق رفيق الدرب للتوجيه إليه بسهولة.">
+
+    <meta name="twitter:image"
+          content="https://gps-rfq.github.io/assets/rafeeq-preview.jpg">
+
+    <!-- Canonical -->
+    <link rel="canonical"
+          href="https://gps-rfq.github.io/r/">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 24px;
+            background: #111;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+        }
+
+        h1 {
+            margin-bottom: 16px;
+        }
+
+        p {
+            line-height: 1.8;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background: #ffffff;
+            color: #111111;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>رفيق الدرب</h1>
+
+    <p>
+        يتم فتح الموقع في تطبيق رفيق الدرب.
+    </p>
+
+    <p>
+        إذا لم يكن التطبيق مثبتًا، يمكنك تنزيله من Google Play.
+    </p>
+
+    <a id="playStoreButton"
+       href="https://play.google.com/store/apps/details?id=com.rafeeq.mokweila">
+        تنزيل رفيق الدرب
+    </a>
+
+</div>
+
+<script>
+(function () {
+
+    "use strict";
+
+    const PLAY_STORE_URL =
+        "https://play.google.com/store/apps/details?id=com.rafeeq.mokweila";
+
+    try {
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const x =
+            params.get("x");
+
+        const y =
+            params.get("y");
+
+        if (x === null || y === null) {
+            return;
+        }
+
+        const latitude =
+            Number(x);
+
+        const longitude =
+            Number(y);
+
+        const valid =
+            Number.isFinite(latitude) &&
+            Number.isFinite(longitude) &&
+            latitude >= -90 &&
+            latitude <= 90 &&
+            longitude >= -180 &&
+            longitude <= 180;
+
+        if (!valid) {
+            return;
+        }
+
+        /*
+         * لو تطبيق رفيق الدرب مثبت وAndroid App Links
+         * متحقق منها، Android سيفتح التطبيق قبل تحميل
+         * هذه الصفحة أصلًا.
+         *
+         * الوصول لهذا الكود غالبًا يعني أن التطبيق
+         * غير مثبت أو أن الرابط فُتح داخل متصفح.
+         */
+
+        window.setTimeout(function () {
+
+            try {
+
+                window.location.href =
+                    PLAY_STORE_URL;
+
+            } catch (e) {
+                // لا نفعل شيئًا
+            }
+
+        }, 1500);
+
+    } catch (e) {
+        // حماية فقط - الصفحة تظل تعمل بدون كراش
+    }
+
+})();
+</script>
+
+</body>
+</html>
