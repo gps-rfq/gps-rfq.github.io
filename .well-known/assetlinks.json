@@ -22,5 +22,17 @@
         "A6:E1:20:B6:88:CE:78:2F:F5:8B:FD:5B:BA:D7:82:76:66:C6:C2:63:EF:AF:F8:62:CF:99:00:40:27:8C:0B:B2"
       ]
     }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rafeeq.mokweila",
+      "sha256_cert_fingerprints": [
+        "9F:16:D5:F4:64:03:85:1B:85:13:D2:F2:7D:C8:B3:E5:A2:75:03:72:45:E7:36:68:D6:29:79:80:0A:F5:19:91"
+      ]
+    }
   }
 ]
