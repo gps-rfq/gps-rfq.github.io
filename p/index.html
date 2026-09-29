@@ -31,6 +31,7 @@
 
 
     <style>
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -49,16 +50,40 @@
             color: #ff7f00;
         }
 
-        a {
-            display: inline-block;
+        .language-content {
+            display: none;
+        }
+
+        .language-content.active {
+            display: block;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
             margin-top: 20px;
             padding: 14px 22px;
+
             background: #ff7f00;
             color: #ffffff;
+
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+
+            white-space: nowrap;
         }
+
+        .google-play-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
     </style>
 
 </head>
@@ -69,19 +94,160 @@
 
     <h1>DAFFH PRO Navigator</h1>
 
-    <p>
-        This location link is designed to open with DAFFH PRO Navigator.
-    </p>
 
-    <p>
-        If the app did not open automatically, make sure DAFFH PRO Navigator is installed on your device.
-    </p>
+    <!-- هنا يبدأ المحتوى العربي -->
+    <div id="content-ar"
+         class="language-content"
+         dir="rtl">
 
-    <a href="https://play.google.com/store/apps/details?id=com.rafeeq.daffahpro">
-        Get DAFFH PRO Navigator
-    </a>
+        <p>
+            يجب تنزيل تطبيق DAFFH PRO Navigator أولا لعرض هذا الموقع.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.daffahpro">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>تنزيل من Google Play</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى العربي -->
+
+
+    <!-- هنا يبدأ المحتوى الإنجليزي -->
+    <div id="content-en"
+         class="language-content active"
+         dir="ltr">
+
+        <p>
+            You must first download DAFFH PRO Navigator to view this location.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.daffahpro">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>Download from Google Play</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى الإنجليزي -->
+
+
+    <!-- هنا يبدأ المحتوى الفرنسي -->
+    <div id="content-fr"
+         class="language-content"
+         dir="ltr">
+
+        <p>
+            Vous devez d’abord télécharger DAFFH PRO Navigator pour afficher cet emplacement.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.daffahpro">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>Télécharger depuis Google Play</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى الفرنسي -->
+
+
+    <!-- هنا يبدأ المحتوى الألماني -->
+    <div id="content-de"
+         class="language-content"
+         dir="ltr">
+
+        <p>
+            Sie müssen zuerst DAFFH PRO Navigator herunterladen, um diesen Standort anzuzeigen.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.daffahpro">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>Von Google Play herunterladen</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى الألماني -->
+
 
 </div>
+
+
+<!-- هنا يبدأ كود تحديد لغة صفحة الويب حسب لغة المستخدم -->
+<script>
+
+    let userLanguage =
+        (navigator.language || navigator.userLanguage || "en")
+            .toLowerCase()
+            .split("-")[0];
+
+
+    const supportedLanguages = [
+        "ar",
+        "en",
+        "fr",
+        "de"
+    ];
+
+
+    if (!supportedLanguages.includes(userLanguage)) {
+        userLanguage = "en";
+    }
+
+
+    document.querySelectorAll(".language-content").forEach(function (element) {
+        element.classList.remove("active");
+    });
+
+
+    document
+        .getElementById("content-" + userLanguage)
+        .classList.add("active");
+
+
+    document.documentElement.lang = userLanguage;
+
+
+    if (userLanguage === "ar") {
+
+        document.documentElement.dir = "rtl";
+        document.body.dir = "rtl";
+
+    } else {
+
+        document.documentElement.dir = "ltr";
+        document.body.dir = "ltr";
+
+    }
+
+</script>
+<!-- هنا نهاية كود تحديد لغة صفحة الويب حسب لغة المستخدم -->
+
 
 </body>
 
