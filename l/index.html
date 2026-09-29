@@ -50,7 +50,10 @@
         }
 
         a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             margin-top: 20px;
             padding: 14px 22px;
             background: #ff7f00;
@@ -58,6 +61,14 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .google-play-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
     </style>
 
@@ -75,7 +86,16 @@
 
     <a id="downloadButton"
        href="https://play.google.com/store/apps/details?id=com.rafeeq.daffah">
-        Download from Google Play
+
+        <img
+            src="assets/google-play-icon.png"
+            alt="Google Play"
+            class="google-play-icon">
+
+        <span id="downloadButtonText">
+            Download from Google Play
+        </span>
+
     </a>
 
 </div>
@@ -125,7 +145,7 @@
     document.getElementById("pageText2").textContent =
         selectedLanguage.text2;
 
-    document.getElementById("downloadButton").textContent =
+    document.getElementById("downloadButtonText").textContent =
         selectedLanguage.button;
 
 
