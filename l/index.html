@@ -69,10 +69,6 @@
 
     <h1>DAFFH LITE Navigator</h1>
 
-    <p id="pageText1">
-        This location link is designed to open with DAFFH LITE Navigator.
-    </p>
-
     <p id="pageText2">
         If the app did not open automatically, make sure DAFFH LITE Navigator is installed on your device.
     </p>
@@ -91,25 +87,21 @@
     const translations = {
 
         ar: {
-            text1: "تم تصميم رابط الموقع هذا ليتم فتحه باستخدام DAFFH LITE Navigator.",
-            text2: "إذا لم يتم فتح التطبيق تلقائيًا، فتأكد من تثبيت DAFFH LITE Navigator على جهازك.",
-            button: "تنزيل التطبيق"
+            text2: "يجب تنزيل تطبيق DAFFH LITE Navigator أولا لعرض هذا الموقع.",
+            button: "تنزيل من Google play"
         },
 
         en: {
-            text1: "This location link is designed to open with DAFFH LITE Navigator.",
             text2: "If the app did not open automatically, make sure DAFFH LITE Navigator is installed on your device.",
             button: "Download the app"
         },
 
         fr: {
-            text1: "Ce lien de localisation est conçu pour être ouvert avec DAFFH LITE Navigator.",
             text2: "Si l’application ne s’ouvre pas automatiquement, assurez-vous que DAFFH LITE Navigator est installé sur votre appareil.",
             button: "Télécharger l’application"
         },
 
         de: {
-            text1: "Dieser Standortlink wurde zum Öffnen mit DAFFH LITE Navigator erstellt.",
             text2: "Wenn die App nicht automatisch geöffnet wurde, stellen Sie sicher, dass DAFFH LITE Navigator auf Ihrem Gerät installiert ist.",
             button: "App herunterladen"
         }
@@ -129,9 +121,6 @@
 
     const selectedLanguage = translations[userLanguage];
 
-
-    document.getElementById("pageText1").textContent =
-        selectedLanguage.text1;
 
     document.getElementById("pageText2").textContent =
         selectedLanguage.text2;
