@@ -69,19 +69,91 @@
 
     <h1>DAFFH LITE Navigator</h1>
 
-    <p>
+    <p id="pageText1">
         This location link is designed to open with DAFFH LITE Navigator.
     </p>
 
-    <p>
+    <p id="pageText2">
         If the app did not open automatically, make sure DAFFH LITE Navigator is installed on your device.
     </p>
 
-    <a href="https://play.google.com/store/apps/details?id=com.rafeeq.daffah">
-        Get DAFFH Navigator تنزيل التطبيق
+    <a id="downloadButton"
+       href="https://play.google.com/store/apps/details?id=com.rafeeq.daffah">
+        Download the app
     </a>
 
 </div>
+
+
+<!-- هنا يبدأ كود تحديد لغة صفحة الويب حسب لغة المستخدم -->
+<script>
+
+    const translations = {
+
+        ar: {
+            text1: "تم تصميم رابط الموقع هذا ليتم فتحه باستخدام DAFFH LITE Navigator.",
+            text2: "إذا لم يتم فتح التطبيق تلقائيًا، فتأكد من تثبيت DAFFH LITE Navigator على جهازك.",
+            button: "تنزيل التطبيق"
+        },
+
+        en: {
+            text1: "This location link is designed to open with DAFFH LITE Navigator.",
+            text2: "If the app did not open automatically, make sure DAFFH LITE Navigator is installed on your device.",
+            button: "Download the app"
+        },
+
+        fr: {
+            text1: "Ce lien de localisation est conçu pour être ouvert avec DAFFH LITE Navigator.",
+            text2: "Si l’application ne s’ouvre pas automatiquement, assurez-vous que DAFFH LITE Navigator est installé sur votre appareil.",
+            button: "Télécharger l’application"
+        },
+
+        de: {
+            text1: "Dieser Standortlink wurde zum Öffnen mit DAFFH LITE Navigator erstellt.",
+            text2: "Wenn die App nicht automatisch geöffnet wurde, stellen Sie sicher, dass DAFFH LITE Navigator auf Ihrem Gerät installiert ist.",
+            button: "App herunterladen"
+        }
+
+    };
+
+
+    let userLanguage = (navigator.language || navigator.userLanguage || "en")
+        .toLowerCase()
+        .split("-")[0];
+
+
+    if (!translations[userLanguage]) {
+        userLanguage = "en";
+    }
+
+
+    const selectedLanguage = translations[userLanguage];
+
+
+    document.getElementById("pageText1").textContent =
+        selectedLanguage.text1;
+
+    document.getElementById("pageText2").textContent =
+        selectedLanguage.text2;
+
+    document.getElementById("downloadButton").textContent =
+        selectedLanguage.button;
+
+
+    document.documentElement.lang = userLanguage;
+
+
+    if (userLanguage === "ar") {
+        document.documentElement.dir = "rtl";
+        document.body.dir = "rtl";
+    } else {
+        document.documentElement.dir = "ltr";
+        document.body.dir = "ltr";
+    }
+
+</script>
+<!-- هنا نهاية كود تحديد لغة صفحة الويب حسب لغة المستخدم -->
+
 
 </body>
 
