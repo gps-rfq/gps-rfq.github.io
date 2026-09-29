@@ -46,63 +46,233 @@
     <link rel="canonical"
           href="https://gps-rfq.github.io/r/">
 
+
     <style>
+
         body {
-            margin: 0;
-            padding: 24px;
-            background: #111;
-            color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
+            padding: 40px 20px;
+            background: #111111;
+            color: #ffffff;
+            margin: 0;
         }
 
         .container {
             max-width: 600px;
-            margin: 60px auto;
+            margin: 0 auto;
         }
 
         h1 {
-            margin-bottom: 16px;
+            color: #ff7f00;
         }
 
-        p {
-            line-height: 1.8;
+        .language-content {
+            display: none;
         }
 
-        a {
-            display: inline-block;
+        .language-content.active {
+            display: block;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
             margin-top: 20px;
-            padding: 12px 22px;
-            background: #ffffff;
-            color: #111111;
+            padding: 14px 22px;
+
+            background: #ff7f00;
+            color: #ffffff;
+
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+
+            white-space: nowrap;
         }
+
+        .google-play-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
     </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>رفيق الدرب</h1>
 
-    <p>
-        يتم فتح الموقع في تطبيق رفيق الدرب.
-    </p>
+    <!-- هنا يبدأ المحتوى العربي -->
+    <div id="content-ar"
+         class="language-content active"
+         dir="rtl">
 
-    <p>
-        إذا لم يكن التطبيق مثبتًا، يمكنك تنزيله من Google Play.
-    </p>
+        <h1>رفيق الدرب</h1>
 
-    <a id="playStoreButton"
-       href="https://play.google.com/store/apps/details?id=com.rafeeq.mokweila">
-        تنزيل رفيق الدرب
-    </a>
+        <p>
+            يجب تنزيل تطبيق رفيق الدرب أولا لعرض هذا الموقع.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.mokweila">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>تنزيل من Google Play</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى العربي -->
+
+
+    <!-- هنا يبدأ المحتوى الإنجليزي -->
+    <div id="content-en"
+         class="language-content"
+         dir="ltr">
+
+        <h1>RAFIQ Navigator</h1>
+
+        <p>
+            You must first download RAFIQ Navigator to view this location.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.mokweila">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>Download from Google Play</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى الإنجليزي -->
+
+
+    <!-- هنا يبدأ المحتوى الفرنسي -->
+    <div id="content-fr"
+         class="language-content"
+         dir="ltr">
+
+        <h1>RAFIQ Navigator</h1>
+
+        <p>
+            Vous devez d’abord télécharger RAFIQ Navigator pour afficher cet emplacement.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.mokweila">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>Télécharger depuis Google Play</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى الفرنسي -->
+
+
+    <!-- هنا يبدأ المحتوى الألماني -->
+    <div id="content-de"
+         class="language-content"
+         dir="ltr">
+
+        <h1>RAFIQ Navigator</h1>
+
+        <p>
+            Sie müssen zuerst RAFIQ Navigator herunterladen, um diesen Standort anzuzeigen.
+        </p>
+
+        <a class="download-button"
+           href="https://play.google.com/store/apps/details?id=com.rafeeq.mokweila">
+
+            <img
+                src="https://gps-rfq.github.io/assets/google-play-icon.png"
+                alt="Google Play"
+                class="google-play-icon">
+
+            <span>Von Google Play herunterladen</span>
+
+        </a>
+
+    </div>
+    <!-- هنا نهاية المحتوى الألماني -->
+
 
 </div>
 
+
+<!-- هنا يبدأ كود تحديد لغة صفحة الويب حسب لغة المستخدم -->
+<script>
+
+    let userLanguage =
+        (navigator.language || navigator.userLanguage || "en")
+            .toLowerCase()
+            .split("-")[0];
+
+
+    const supportedLanguages = [
+        "ar",
+        "en",
+        "fr",
+        "de"
+    ];
+
+
+    if (!supportedLanguages.includes(userLanguage)) {
+        userLanguage = "en";
+    }
+
+
+    document.querySelectorAll(".language-content").forEach(function (element) {
+        element.classList.remove("active");
+    });
+
+
+    document
+        .getElementById("content-" + userLanguage)
+        .classList.add("active");
+
+
+    document.documentElement.lang = userLanguage;
+
+
+    if (userLanguage === "ar") {
+
+        document.documentElement.dir = "rtl";
+        document.body.dir = "rtl";
+
+    } else {
+
+        document.documentElement.dir = "ltr";
+        document.body.dir = "ltr";
+
+    }
+
+</script>
+<!-- هنا نهاية كود تحديد لغة صفحة الويب حسب لغة المستخدم -->
+
+
+<!-- هنا يبدأ كود تحويل المستخدم إلى Google Play عند الحاجة -->
 <script>
 (function () {
 
@@ -172,6 +342,7 @@
 
 })();
 </script>
+<!-- هنا نهاية كود تحويل المستخدم إلى Google Play عند الحاجة -->
 
 </body>
 </html>
